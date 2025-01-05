@@ -1,4 +1,8 @@
 spring:
   application:
     name: foodie-backend
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: foodie
 
