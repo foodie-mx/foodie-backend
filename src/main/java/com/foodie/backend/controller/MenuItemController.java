@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 import static com.foodie.backend.service.ApiConstants.API_V1;
 import static com.foodie.backend.service.ApiConstants.ID;
 
@@ -45,5 +47,11 @@ public class MenuItemController {
     @PutMapping(ID)
     public MenuItem updateMenuItem(@PathVariable String id, @RequestBody MenuItem menuItem) {
         return menuItemService.updateMenuItem(id, menuItem);
+    }
+
+    @GetMapping
+    @ResponseBody
+    public List<MenuItem> getAllMenuItems() {
+        return menuItemService.getAllMenuItems();
     }
 }

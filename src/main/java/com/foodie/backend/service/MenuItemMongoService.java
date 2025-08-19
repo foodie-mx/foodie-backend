@@ -6,6 +6,7 @@ import com.foodie.backend.repository.MenuItemMongoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,5 +40,10 @@ public class MenuItemMongoService implements MenuItemService {
         }
         menuItem.setId(id);
         return menuItemMongoRepository.save(menuItem);
+    }
+
+    @Override
+    public List<MenuItem> getAllMenuItems() {
+        return menuItemMongoRepository.findAll();
     }
 }
