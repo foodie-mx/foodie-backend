@@ -7,15 +7,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("restaurants")
+@Document("menu_items")
 @Data
 @Builder
-public class Restaurant {
+public class MenuItem {
     @Id
     private String id;
     private String name;
-    private String chain;
-    private Address address;
-    //private List<String> websites;
-    List<PhoneNumber> phoneNumbers;
+    private double price;
+    private String category;
+    private String description;
+    private String image;
+    private List<MenuItemModifier> modifiers;
 }

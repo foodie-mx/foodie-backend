@@ -4,7 +4,7 @@ import com.foodie.backend.model.Restaurant;
 
 import java.util.Optional;
 
-public interface RestaurantService {
+public interface RestaurantMongoService {
 
     Restaurant createRestaurant(Restaurant restaurant);
 
