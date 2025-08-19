@@ -18,5 +18,5 @@ public class MenuItem {
     private String category;
     private String description;
     private String image;
-    private List<MenuItemModifier> modifiers; // Reference to the restaurant this item belongs to
+    private List<MenuItemModifier> modifiers;
 }
