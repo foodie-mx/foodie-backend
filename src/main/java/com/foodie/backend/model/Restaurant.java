@@ -1,0 +1,21 @@
+package com.foodie.backend.model;
+
+import lombok.Builder;
+import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+
+@Document("restaurant")
+@Data
+@Builder
+public class Restaurant {
+    @Id
+    private String id;
+    private String name;
+    private String chain;
+    private Address address;
+    //private List<String> websites;
+    List<PhoneNumber> phoneNumbers;
+}
