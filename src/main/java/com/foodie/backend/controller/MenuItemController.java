@@ -1,0 +1,49 @@
+package com.foodie.backend.controller;
+
+import com.foodie.backend.error.EntityNotFoundException;
+import com.foodie.backend.model.MenuItem;
+import com.foodie.backend.service.MenuItemService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import static com.foodie.backend.service.ApiConstants.API_V1;
+import static com.foodie.backend.service.ApiConstants.ID;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping(API_V1 + "/menu-item")
+public class MenuItemController {
+
+    private final MenuItemService menuItemService;
+
+    @GetMapping(ID)
+    @ResponseBody
+    public MenuItem getMenuItem(@PathVariable String id) {
+        return menuItemService.getMenuItem(id)
+                .orElseThrow(() -> new EntityNotFoundException("MenuItem Not Found"));
+    }
+
+    @PostMapping
+    @ResponseBody
+    public MenuItem createMenuItem(@RequestBody MenuItem menuItem) {
+        return menuItemService.createMenuItem(menuItem);
+    }
+
+    @DeleteMapping(ID)
+    public void deleteMenuItem(@PathVariable String id) {
+        menuItemService.deleteMenuItem(id);
+    }
+
+    @PutMapping(ID)
+    public MenuItem updateMenuItem(@PathVariable String id, @RequestBody MenuItem menuItem) {
+        return menuItemService.updateMenuItem(id, menuItem);
+    }
+}
