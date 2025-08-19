@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document("restaurant")
+@Document("restaurants")
 @Data
 @Builder
 public class Restaurant {
