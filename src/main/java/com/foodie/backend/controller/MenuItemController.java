@@ -4,6 +4,7 @@ import com.foodie.backend.error.EntityNotFoundException;
 import com.foodie.backend.model.MenuItem;
 import com.foodie.backend.service.MenuItemService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import static com.foodie.backend.service.ApiConstants.ID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 @RequestMapping(API_V1 + "/menu-item")
 public class MenuItemController {
 
